@@ -12,8 +12,8 @@
 h1 {
 	padding-top: 44px;
 	text-align: center;
-	margin-bottom: 1rem;
-	font-family: 'Roboto';
+	margin-bottom: 5rem;
+	font-family: 'Roboto', sans-serif;
 	font-size: 44px;
 	color: #da831f;
 }
@@ -28,14 +28,65 @@ ul {
 		margin-bottom: 1rem;
 	}
 }
+
 .container {
 	background-image: url('/assets/backgrounds/summer-bg.jpg');
 	background-size: cover;
 }
+
 .main-page {
 	height: 100vh;
-
 	background-position: center;
 	backdrop-filter: blur(10px);
 	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.weather-types-container {
+	display: flex;
+	justify-content: center;
+	gap: 25px;
+}
+
+.weather-type {
+	width: 200px;
+	height: 200px;
+	border: 1px solid rgb(235, 235, 235);
+	border-radius: 15px;
+	position: relative;
+	background-size: cover;
+
+	&::after {
+		content: '';
+		position: absolute;
+		background-repeat: no-repeat;
+		background-size: contain;
+		width: 70px;
+		height: 70px;
+		top: 33%;
+		left: 33%;
+	}
+}
+
+#summer {
+	background-image: url('/assets/backgrounds/summer-bg.jpg');
+
+	&::after {
+		background-image: url('/assets/icons/sun.svg');
+	}
+}
+
+#rain {
+	background-image: url('/assets/backgrounds/rainy-bg.jpg');
+
+	&::after {
+		background-image: url('/assets/icons/cloud-rain.svg');
+	}
+}
+
+#winter {
+	background-image: url('/assets/backgrounds/winter-bg.jpg');
+
+	&::after {
+		background-image: url('/assets/icons/cloud-snow.svg');
+	}
 }
