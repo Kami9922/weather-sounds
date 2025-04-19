@@ -1,7 +1,7 @@
 {
-	"name": "weather-sounds2",
+	"name": "weather-sounds",
 	"version": "1.0.0",
-	"description": "",
+	"description": "weather-sounds",
 	"scripts": {
 		"start": "npx webpack serve --config webpack.config.dev.js",
 		"build": "npx webpack --config webpack.config.prod.js",
