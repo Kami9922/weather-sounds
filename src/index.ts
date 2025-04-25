@@ -8,15 +8,15 @@ import summerBg from '../src/assets/backgrounds/summer-bg.jpg'
 import rainyBg from '../src/assets/backgrounds/rainy-bg.jpg'
 import winterBg from '../src/assets/backgrounds/winter-bg.jpg'
 
-const summerAudio: HTMLAudioElement = new Audio(summerSound)
-const rainAudio: HTMLAudioElement = new Audio(rainSound)
-const winterAudio: HTMLAudioElement = new Audio(winterSound)
+const summerAudio = new Audio(summerSound)
+const rainAudio = new Audio(rainSound)
+const winterAudio = new Audio(winterSound)
 
 let currentAudio: HTMLAudioElement | null = null
 
 type WeatherType = 'summer' | 'rain' | 'winter'
 
-function toggleAudio(audio: HTMLAudioElement): void {
+function toggleAudio(audio: HTMLAudioElement) {
 	if (currentAudio && currentAudio !== audio) {
 		currentAudio.pause()
 		currentAudio.currentTime = 0
@@ -31,7 +31,7 @@ function toggleAudio(audio: HTMLAudioElement): void {
 	currentAudio = audio
 }
 
-function changeBackground(weatherType: WeatherType): void {
+function changeBackground(weatherType: WeatherType) {
 	const container: HTMLElement | null = document.querySelector('.container')
 	if (!container) return
 
@@ -50,27 +50,24 @@ function changeBackground(weatherType: WeatherType): void {
 	}
 }
 
-;(document.getElementById('summer') as HTMLElement).addEventListener(
-	'click',
-	() => {
-		toggleAudio(summerAudio)
-		changeBackground('summer')
-	}
-)
-;(document.getElementById('rain') as HTMLElement).addEventListener(
-	'click',
-	() => {
-		toggleAudio(rainAudio)
-		changeBackground('rain')
-	}
-)
-;(document.getElementById('winter') as HTMLElement).addEventListener(
-	'click',
-	() => {
-		toggleAudio(winterAudio)
-		changeBackground('winter')
-	}
-)
+const summerElement = document.getElementById('summer') as HTMLElement
+
+summerElement.addEventListener('click', () => {
+	toggleAudio(summerAudio)
+	changeBackground('summer')
+})
+const rainElement = document.getElementById('rain') as HTMLElement
+
+rainElement.addEventListener('click', () => {
+	toggleAudio(rainAudio)
+	changeBackground('rain')
+})
+const winterElement = document.getElementById('winter') as HTMLElement
+
+winterElement.addEventListener('click', () => {
+	toggleAudio(winterAudio)
+	changeBackground('winter')
+})
 
 const volumeSlider: HTMLInputElement = document.getElementById(
 	'volume-slider'
